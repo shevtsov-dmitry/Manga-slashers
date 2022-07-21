@@ -730,6 +730,7 @@ section {
         left:10px;
         width: 50px;
         background-repeat: no-repeat;
+        background-image: url(https://cdn-icons-png.flaticon.com/512/4908/4908770.png);
     }
     .community-right-side-image, .community-left-side-image{
         display:none;
@@ -745,7 +746,7 @@ section {
 /* -------------------- */
 
 .collection-wrapper{
-    margin:50px -350px 0px 0px;
+    margin:50px -80% 0px 0px;
     transform: scale(1.5);
 }
 .collection-text{
@@ -791,8 +792,7 @@ section {
     z-index: 1;
     width: 300px;
     box-shadow: none;
-    /* border-radius: 20px; */
-    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
+    
 }
 .collection-item-center p{
     font-family: 'Maven Pro', sans-serif;    
@@ -1018,6 +1018,7 @@ section {
     .creator-description{
         font-size: 1.2em;
     }
+    
     @media (max-height:1760px){
         .pop-goes{
             margin-top: -25px;
@@ -1041,6 +1042,39 @@ section {
         .community-right-side-image{
             height: 50%;
         }
+    }
+}
+@media (max-height:800px){
+    .collection-wrapper{
+        padding: 0;
+    }
+    .collection-header h1{
+        margin-top: 9%;
+    }
+    .mobile-main-picture{
+        margin-top:-60px;
+    }
+    #Collection{
+        margin-top:100px;
+    }
+    .flex-item-center p{
+        z-index: 100;
+    }
+    #Roadmap {
+        margin-top: 110%;
+    }
+    #y2022{
+        padding-top: 12%;
+    }
+    #team{
+        margin-top: 100%;
+    }
+    .mobile-team-block{
+        margin-top:30%;
+    }
+    #team h1 {
+        font-size: 2.5em;
+        padding: 0;
     }
 }
 
