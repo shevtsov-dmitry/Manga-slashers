@@ -1,0 +1,236 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    max-width: 100vw;
+    overflow: hidden;
+    max-height: 100vh;
+    background-color: #0d1b2a;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+/* ---------------------------------MANGA-BUTTON--------------------------------- */
+.manga-invisible{
+    z-index: 11;
+    position: fixed;
+    top: 25px;
+    left: 10%;
+    width: 9%;
+    height: 9%;
+    background-repeat: no-repeat;
+    background-image: url(/imgs/back-manga.png);
+    background-size: contain;
+    transition:  0.25s linear;
+    cursor: pointer;
+    animation: slide 0.7s ease-in-out 0.5s forwards;
+}
+.for-manga-pannel{
+    margin-top: 41px;
+    margin-left: 91px;
+    width: 0px;
+    height: 60px;
+    position: fixed;
+    background-color: #96c3da;
+}
+.for-manga-pannel ul{
+    color:red;
+    user-select: none;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    margin-top:13.5px;
+}
+.for-manga-pannel li {
+    
+    opacity: 0;
+    cursor: pointer;
+    color:#5D737E;
+    padding: 0px 5px 5px 5px;
+    border-radius: 12px;
+    font-size: 1.8em;
+    font-family: 'Bentham', serif;
+}
+    
+.mangaPanel{
+    transition: 0.8s ease-in-out;
+    background-color: #5D737E;
+    z-index: 10;
+    position: fixed;
+    margin:35px 0px 0px 90px;
+    border-radius: 0px 20px 20px 0px;
+    content: '';
+    display: block;
+    width: 500px;
+    height: 70px;
+}
+.mangaPanel ul{
+    /*  */
+    user-select: none;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    margin-top:13.5px;
+}
+.mangaPanel li {
+    
+    color:black;
+    opacity: 1;
+    cursor: pointer;
+    background-color: #FCFFFD ;
+    padding: 0px 5px 5px 5px;
+    border-radius: 12px;
+    font-size: 1.8em;
+    font-family: 'Bentham', serif;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.mangaPanel li:hover{
+    background-color: #DAFFEF;
+}
+@keyframes slide {
+    0%{}
+    100%{left:10px;}
+}
+.manga-button{
+    position: fixed;
+    z-index: 11;
+    content: '';
+    display: block;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/4908/4908770.png);
+    width: 9%;
+    height: 9%;
+    background-size: contain;
+    transition: 0.25s linear;
+    cursor: pointer;
+}
+.opacity{
+    opacity: 1;
+}
+/* ---------------------------------CHAPTERS--------------------------------- */
+.contentBasic {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    position: relative;
+    top:10.8vh;
+    left: 5.11vw;
+    overflow: scroll;
+}
+.content{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    overflow:scroll;
+    z-index: 11;
+    opacity: 1;
+    background-color:#8d99ae;
+    height: 100%;
+    position: relative;
+    height: 80vh;
+    width:24.7vw;
+    top:10.8vh;
+    left: 5.11vw;
+    border-radius: 0px 0px 25px 25px;
+    font-size: 1.2em;
+
+}
+.chapters{
+    overflow:hidden;
+    padding:20px 10px 20px 10px;
+    color:#edf6f9;
+    /* #edf6f9 */
+    font-family: 'Lato', sans-serif;
+    line-height: 1.5em;
+}
+.nav{
+    display: flex;
+    height: 300px;
+}
+.panel{
+    height: 10px;
+    width: 200px;
+    border-color: red;
+}
+
+/* ---------------------------------SLIDES--------------------------------- */
+.right-slide{
+    cursor: pointer;
+    display: flex;
+    z-index: 1;
+    position:fixed;
+    top: 0;
+    right: 0;
+    width: 60vw;
+    height: 100vh;
+    opacity: 0;
+}
+.left-slide{
+    display: flex;
+    z-index: 1;
+    position:fixed;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    width:  40vw;
+    height: 100vh;
+    opacity: 0;
+}
+/* ---------------------------------MANGA-IMGS--------------------------------- */
+.manga-imgs{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    height:100%;
+    width: 100%;
+    object-fit: contain;
+}
+.yzor{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(/imgs/background-manga-yzor.png);
+    background-size: contain;   
+}
+.cover{
+    display: block;
+}
+.page1 {
+    display: none;
+}
+
+
+/* ---------------------------------ARROWS--------------------------------- */
+.right-left{
+    position: fixed;
+    top:  450px;
+    left: 1350px;
+}
+@keyframes bounce-opacity {
+    0%{}
+    10%{transform: scale(0.78);}
+    20%{transform: scale(0.82);}
+    30%{transform: scale(0.89);}
+    40%{transform: scale(0.72);}
+    50%{transform: scale(0.85);}
+    75%{transform: scale(1.0);}
+}
+#right-arrow{
+    width: 100px;
+    animation:bounce-opacity 1.5s linear forwards 1.5s;
+}
+/* ---------------------------------BIG BRAIN START--------------------------------- */
+.big-brain{
+    opacity: 0;
+    z-index: 1000;
+    width: 200px;
+    height: 100px;
+    position: fixed;
+    top:20px;
+    left:100px;
+    background-color: #FCFFFD;
+    animation: big-brain-xDD 1s 1s forwards;
+}
+@keyframes big-brain-xDD {
+    0%{}
+    100%{top:-300px;}
+}
