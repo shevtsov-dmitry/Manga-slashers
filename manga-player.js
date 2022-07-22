@@ -122,7 +122,7 @@ function createDivs(){
         let divs = document.createElement('div')
         mangaImgs.insertAdjacentElement('afterbegin', divs)
         push.push(divs)
-        console.log(push)
+        // console.log(push)
         push.forEach(e =>{
             divs.innerHTML = `<div style="background-image:url(${addImgsToDivs()})"></div>`
         })
@@ -132,6 +132,12 @@ function createDivs(){
 createDivs()
 
 function addImgsToDivs(){
-
+    let array = [];
+    for (i of pages){
+        console.log(i.src)
+        array.push(i.src)
+    }
 }
+console.log(addImgsToDivs())
+
 
