@@ -30,7 +30,7 @@ forMangaPlayer.addEventListener('mouseenter',()=>{
 })
 
 
-// ==============================================================================
+// =================================================================
 
 let chaptersBasic = document.querySelector('.contentBasic');
 let chapters = document.querySelector('.content');
@@ -52,22 +52,86 @@ chaptersBasic.addEventListener('mouseenter', ()=>{
 chaptersBasic.style.transition = 'all 0.8s'
 
 
-// ==============================================================================
+// ===========================PAGE-SWITCHING======================================
+
 let right = document.querySelector('.right-slide'),
-    left = document.querySelector('.left-slide'),
-    cover = document.querySelector('.cover'),
-    page1 = document.querySelector('.page1');
+    left = document.querySelector('.left-slide');
+
 
     right.addEventListener('click', ()=>{
-            cover.style.display = 'none';
-            page1.style.display = 'block';
+
     })
     left.addEventListener('click',()=>{
-        cover.style.display = 'block';
-        page1.style.display = 'none';
+
     })
     
     rightArrow = document.querySelector('#right-arrow')
     rightArrow.addEventListener('animationend',()=>{
         rightArrow.style.opacity = '0'
     })
+
+    // -------DATA---------
+
+let pages = [
+    {
+        page: 1,
+        src: 'imgs/manga/page1.jpeg'
+    }, 
+    {
+        page: 2,
+        src: 'imgs/manga/2page.jpeg'
+    },
+    {
+        page: 3,
+        src: 'imgs/manga/3page.jfif'
+    },
+    {
+        page: 4,
+        src: 'imgs/manga/4page.jpeg'
+    },
+    {
+        page: 5,
+        src: 'imgs/manga/5page.jfif'
+    },
+    {
+        page: 6,
+        src: 'imgs/manga/6page.jpeg'
+    },
+    {
+        page: 7,
+        src: 'imgs/manga/7page.jpeg'
+    },
+    {
+        page: 8,
+        src: 'imgs/manga/8page.jpeg'
+    },
+    {
+        page: 9,
+        src: 'imgs/manga/9page.jfif'
+    }
+]
+// -------DIVS----------
+
+const mangaImgs = document.querySelector('.manga-imgs')
+
+
+
+function createDivs(){
+    for (i=0; i<pages.length; i++){
+        let push = [];
+        let divs = document.createElement('div')
+        mangaImgs.insertAdjacentElement('afterbegin', divs)
+        push.push(divs)
+        console.log(push)
+        push.forEach(e =>{
+            divs.innerHTML = `<div style="background-image:url(${addImgsToDivs()})"></div>`
+        })
+    }
+
+}
+createDivs()
+
+function addImgsToDivs(){
+
+}
+

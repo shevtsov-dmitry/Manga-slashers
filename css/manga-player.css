@@ -185,21 +185,22 @@ body{
     width: 100%;
     object-fit: contain;
 }
+.manga-imgs div{
+    width:100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+} 
 .yzor{
     width: 100vw;
     height: 100vh;
     background-image: url(/imgs/background-manga-yzor.png);
     background-size: contain;   
 }
-.cover{
-    display: block;
-}
-.page1 {
-    display: none;
-}
 
 
-/* ---------------------------------ARROWS--------------------------------- */
+/* ---------------------------------ARROW--------------------------------- */
 .right-left{
     position: fixed;
     top:  450px;
