@@ -54,21 +54,6 @@ chaptersBasic.style.transition = 'all 0.8s'
 
 // ===========================PAGE-SWITCHING======================================
 
-let right = document.querySelector('.right-slide'),
-    left = document.querySelector('.left-slide');
-
-
-    right.addEventListener('click', ()=>{
-
-    })
-    left.addEventListener('click',()=>{
-
-    })
-    
-    rightArrow = document.querySelector('#right-arrow')
-    rightArrow.addEventListener('animationend',()=>{
-        rightArrow.style.opacity = '0'
-    })
 
     // -------DATA---------
 
@@ -113,31 +98,42 @@ let pages = [
 // -------DIVS----------
 
 const mangaImgs = document.querySelector('.manga-imgs')
-
-
+let next = 0,
+    prev = 0;
 
 function createDivs(){
     for (i=0; i<pages.length; i++){
-        let push = [];
         let divs = document.createElement('div')
         mangaImgs.insertAdjacentElement('afterbegin', divs)
-        push.push(divs)
-        // console.log(push)
-        push.forEach(e =>{
-            divs.innerHTML = `<div style="background-image:url(${addImgsToDivs()})"></div>`
-        })
+        divs.innerHTML = `<div style="background-image:url(${addImgsToDivs()})"></div>`
     }
-
 }
 createDivs()
 
 function addImgsToDivs(){
-    let array = [];
-    for (i of pages){
-        console.log(i.src)
-        array.push(i.src)
-    }
+    let newArray = []
+        pages.forEach(e =>{
+        newArray.push(e.src)
+    })
+    return newArray
 }
+
 console.log(addImgsToDivs())
 
+// addImgsToDivs()
 
+// -------SWITCH----------
+
+let right = document.querySelector('.right-slide'),
+    left = document.querySelector('.left-slide');
+
+    right.addEventListener('click', ()=>{
+    })
+    left.addEventListener('click',()=>{
+
+    })
+    
+    rightArrow = document.querySelector('#right-arrow')
+    rightArrow.addEventListener('animationend',()=>{
+        rightArrow.style.opacity = '0'
+    })
