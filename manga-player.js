@@ -64,7 +64,7 @@ let pages = [
     }, 
     {
         page: 2,
-        src: 'imgs/manga/2page.jpeg'
+        src: 'imgs/manga/2page.jpg'
     },
     {
         page: 3,
@@ -72,7 +72,7 @@ let pages = [
     },
     {
         page: 4,
-        src: 'imgs/manga/4page.jpeg'
+        src: 'imgs/manga/4page.jpg'
     },
     {
         page: 5,
@@ -80,57 +80,94 @@ let pages = [
     },
     {
         page: 6,
-        src: 'imgs/manga/6page.jpeg'
+        src: 'imgs/manga/6page.jpg'
     },
     {
         page: 7,
-        src: 'imgs/manga/7page.jpeg'
+        src: 'imgs/manga/7page.jpg'
     },
     {
         page: 8,
-        src: 'imgs/manga/8page.jpeg'
+        src: 'imgs/manga/8.jpg'
     },
     {
         page: 9,
         src: 'imgs/manga/9page.jfif'
+    },
+    {
+        page: 10,
+        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/013.png'
+    },
+    {
+        page: 11,
+        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/014.png'
+    },
+    {
+        page: 12,
+        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/015.png'
+    },
+    {
+        page: 13,
+        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/016.png'
+    },
+    {
+        page: 14,
+        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/017.png'
     }
 ]
 // -------DIVS----------
 
 const mangaImgs = document.querySelector('.manga-imgs')
-let next = 0,
-    prev = 0;
+let zero = 0;
 
-function createDivs(){
-    for (i=0; i<pages.length; i++){
-        let divs = document.createElement('div')
-        mangaImgs.insertAdjacentElement('afterbegin', divs)
-        divs.innerHTML = `<div style="background-image:url(${addImgsToDivs()})"></div>`
-    }
-}
-createDivs()
-
-function addImgsToDivs(){
-    let newArray = []
-        pages.forEach(e =>{
-        newArray.push(e.src)
-    })
-    return newArray
+for (i=0; i<pages.length; i++){
+    let divs = document.createElement('div')
+    divs.classList.add('select-me')
+    mangaImgs.insertAdjacentElement('afterbegin', divs)
 }
 
-console.log(addImgsToDivs())
+let createdDivs = document.querySelectorAll('.select-me')
 
-// addImgsToDivs()
+// -------ARRAY OF IMGS----------
+
 
 // -------SWITCH----------
 
 let right = document.querySelector('.right-slide'),
     left = document.querySelector('.left-slide');
 
-    right.addEventListener('click', ()=>{
-    })
-    left.addEventListener('click',()=>{
+let rightAdd = document.querySelector('.right-slide-additional'),
+    leftAdd = document.querySelector('.left-slide-additional');
 
+    right.addEventListener('click', ()=>{
+        console.log(zero)
+            createdDivs[zero].innerHTML = `<div style="background-image: url(${pages[zero].src})"></div>`
+            zero++;
+            createdDivs[zero - 2].innerHTML = ''
+       if (zero === createdDivs.length){
+        document.location.href = "http://127.0.0.1:5501/index.html"
+       }
+    //    additional div befind 
+    leftAdd.style.display = 'flex'
+    })
+
+    leftAdd.addEventListener('click', ()=>{
+        zero -= 2;
+        createdDivs[zero].innerHTML = ''
+        leftAdd.style.display = 'none'
+        console.log(zero)
+    })
+
+    left.addEventListener('click',()=>{
+        console.log(zero)
+        createdDivs[zero].innerHTML = `<div style="background-image: url(${pages[zero].src})"></div>`
+        zero--;
+        createdDivs[zero + 2].innerHTML = ''
+        if (zero<0){
+            zero === 0
+        }
+        //    additional div befind 
+    // rightAdd.style.display = 'flex'
     })
     
     rightArrow = document.querySelector('#right-arrow')
