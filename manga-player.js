@@ -7,15 +7,14 @@ manga.addEventListener('mouseenter',()=>{
     manga.classList.add('manga-button')
     forMangaPlayer.classList.add('mangaPanel')
     forMangaPlayer.style.transition = 'all 1s'
-
-    liM[0].style.transition = 'all 0.3s ease-out 0.3s'
-    liM[1].style.transition = 'all 0.3s ease-out 0.3s'
-    liM[2].style.transition = 'all 0.3s ease-out 0.3s'
+    for(i of liM){
+        i.style.transition = 'all 0.3s ease-out 0.3s'
+    }
 
     manga.addEventListener('mouseleave',()=>{
-        liM[0].style.transition = 'all 0.2s ease-in'
-        liM[1].style.transition = 'all 0.2s ease-in'
-        liM[2].style.transition = 'all 0.2s ease-in'
+        for(i of liM){
+            i.style.transition = 'all 0.2s ease-in'
+        }
         manga.classList.remove('manga-button')
         forMangaPlayer.classList.remove('mangaPanel')
     })    
@@ -30,7 +29,7 @@ forMangaPlayer.addEventListener('mouseenter',()=>{
 })
 
 
-// =================================================================
+// ================== SHOW CHAPTERS ============================
 
 let chaptersBasic = document.querySelector('.contentBasic');
 let chapters = document.querySelector('.content');
@@ -43,7 +42,6 @@ chaptersBasic.addEventListener('mouseenter', ()=>{
     chaptersBasic.classList.add('content');
     forMangaPlayer.classList.add('mangaPanel');
     chaptersBasic.addEventListener('mouseleave', ()=>{
-        
         chaptersBasic.classList.remove('content');
         forMangaPlayer.classList.remove('mangaPanel');
     })
@@ -52,10 +50,10 @@ chaptersBasic.addEventListener('mouseenter', ()=>{
 chaptersBasic.style.transition = 'all 0.8s'
 
 
-// ===========================PAGE-SWITCHING======================================
+// =====================PAGE-SWITCHING===========================
 
 
-    // -------DATA---------
+    // -------DATA 1 Chapter---------
 
 let pages = [
     {
@@ -143,34 +141,31 @@ let mangaCover = document.querySelector('.manga-cover')
 
     right.addEventListener('click', ()=>{
         zero++;
+        if (zero === createdDivs.length){
+            zero -= 1;
+            document.location.href = "http://127.0.0.1:5501/index.html"
+           }
         console.log(zero)
         pageCounter.textContent = `${zero+1}/${createdDivs.length}`
 
         createdDivs[zero].innerHTML = `<div style="background-image: url(${pages[zero].src})"></div>`
         createdDivs[zero - 1].innerHTML = ''
-       if (zero === createdDivs.length){
-        document.location.href = "http://127.0.0.1:5501/index.html"
-       }
         mangaCover.style.display =  'none'
     })
 
     left.addEventListener('click',()=>{
         zero--;
+        if (zero < 0){
+            zero += 1;
+        }
         console.log(zero)
         createdDivs[zero].innerHTML = `<div style="background-image: url(${pages[zero].src})"></div>`
-        if (zero < 0){
-            // mangaCover.style.display =  'block'
-            zero += 2;
-        }
+       
         createdDivs[zero + 1].innerHTML = ''
         pageCounter.textContent = `${zero+1}/${createdDivs.length}`
     })
     pageCounter.textContent = `${zero+1}/${createdDivs.length}`
-    // function lovely(){if (zero === -1) return console.log('hi')}
-    // lovely()
-    // {
-        // mangaCover.style.display =  'block'
-    // }
+
 
     rightArrow = document.querySelector('#right-arrow')
     rightArrow.addEventListener('animationend',()=>{

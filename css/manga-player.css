@@ -264,6 +264,7 @@ body{
     align-items: center;
     justify-content: center;
 }
+/* ----counter-align------- */
 @media (max-width: 1343px) {
  .page-counter{
     font-size:1.5em;
@@ -288,5 +289,12 @@ body{
     .page-counter{
         right: 5%;
         font-size: 0.8em;
+    }
+}
+/* ----for laptop------- */
+@media (max-width:1024px) {
+    .for-manga-pannel{
+        margin-left:7.5%;
+        margin-top: 3%;
     }
 }
