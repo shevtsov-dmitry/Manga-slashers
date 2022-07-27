@@ -175,28 +175,7 @@ body{
     height: 100vh;
     opacity: 0;
 }
-.right-slide-additional {
-    cursor: pointer;
-    display: none;
-    z-index: 1;
-    position:fixed;
-    top: 0;
-    right: 0;
-    width: 60vw;
-    height: 100vh;
-    opacity: 0;
-}
-.left-slide-additional {
-    display: none;
-    z-index: 1;
-    position:fixed;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    width:  40vw;
-    height: 100vh;
-    opacity: 0;
-}
+
 /* ---------------------------------MANGA-IMGS--------------------------------- */
 .manga-imgs{
     position: fixed;
@@ -220,7 +199,19 @@ body{
     background-image: url(/imgs/background-manga-yzor.png);
     background-size: contain;   
 }
-
+.manga-cover-wrapper{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    object-fit:cover;
+    display: flex;
+    justify-content: center;
+}
+.manga-cover{
+    position: fixed;
+    display: block;
+    height: 100vh;
+}
 
 /* ---------------------------------ARROW--------------------------------- */
 .right-left{
@@ -258,3 +249,44 @@ body{
     100%{top:-300px;}
 }
 
+.page-counter {
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+    width: 5%;
+    height: 4%;
+    border-radius: 10px;
+    background-color: #5D737E;
+    opacity: 45%;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 1343px) {
+ .page-counter{
+    font-size:1.5em;
+ }
+}
+@media (max-width:1015px) {
+    .page-counter{
+        font-size: 1em;
+        height: 3%;
+    }
+}
+@media (max-width: 425px) {
+    .page-counter{
+        right: 10%;
+        opacity: 70%;
+        z-index: 1;
+        width: 10%;
+    }
+    
+}
+@media (max-width: 375px){
+    .page-counter{
+        right: 5%;
+        font-size: 0.8em;
+    }
+}

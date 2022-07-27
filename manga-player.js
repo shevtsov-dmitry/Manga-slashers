@@ -118,7 +118,8 @@ let pages = [
 // -------DIVS----------
 
 const mangaImgs = document.querySelector('.manga-imgs')
-let zero = 0;
+
+let zero = -1;
 
 for (i=0; i<pages.length; i++){
     let divs = document.createElement('div')
@@ -128,9 +129,6 @@ for (i=0; i<pages.length; i++){
 
 let createdDivs = document.querySelectorAll('.select-me')
 
-// -------ARRAY OF IMGS----------
-
-
 // -------SWITCH----------
 
 let right = document.querySelector('.right-slide'),
@@ -139,37 +137,41 @@ let right = document.querySelector('.right-slide'),
 let rightAdd = document.querySelector('.right-slide-additional'),
     leftAdd = document.querySelector('.left-slide-additional');
 
+let pageCounter = document.querySelector('.page-counter')
+
+let mangaCover = document.querySelector('.manga-cover')
+
     right.addEventListener('click', ()=>{
+        zero++;
         console.log(zero)
-            createdDivs[zero].innerHTML = `<div style="background-image: url(${pages[zero].src})"></div>`
-            zero++;
-            createdDivs[zero - 2].innerHTML = ''
+        pageCounter.textContent = `${zero+1}/${createdDivs.length}`
+
+        createdDivs[zero].innerHTML = `<div style="background-image: url(${pages[zero].src})"></div>`
+        createdDivs[zero - 1].innerHTML = ''
        if (zero === createdDivs.length){
         document.location.href = "http://127.0.0.1:5501/index.html"
        }
-    //    additional div befind 
-    leftAdd.style.display = 'flex'
-    })
-
-    leftAdd.addEventListener('click', ()=>{
-        zero -= 2;
-        createdDivs[zero].innerHTML = ''
-        leftAdd.style.display = 'none'
-        console.log(zero)
+        mangaCover.style.display =  'none'
     })
 
     left.addEventListener('click',()=>{
+        zero--;
         console.log(zero)
         createdDivs[zero].innerHTML = `<div style="background-image: url(${pages[zero].src})"></div>`
-        zero--;
-        createdDivs[zero + 2].innerHTML = ''
-        if (zero<0){
-            zero === 0
+        if (zero < 0){
+            // mangaCover.style.display =  'block'
+            zero += 2;
         }
-        //    additional div befind 
-    // rightAdd.style.display = 'flex'
+        createdDivs[zero + 1].innerHTML = ''
+        pageCounter.textContent = `${zero+1}/${createdDivs.length}`
     })
-    
+    pageCounter.textContent = `${zero+1}/${createdDivs.length}`
+    // function lovely(){if (zero === -1) return console.log('hi')}
+    // lovely()
+    // {
+        // mangaCover.style.display =  'block'
+    // }
+
     rightArrow = document.querySelector('#right-arrow')
     rightArrow.addEventListener('animationend',()=>{
         rightArrow.style.opacity = '0'
