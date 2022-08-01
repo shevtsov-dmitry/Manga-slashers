@@ -180,9 +180,6 @@ body{
 .hidden{
     display: none;
 }
-.show{
-    display: block;
-}
 .manga-imgs{
     position: fixed;
     display: flex;
