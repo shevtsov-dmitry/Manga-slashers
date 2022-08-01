@@ -177,6 +177,9 @@ body{
 }
 
 /* ---------------------------------MANGA-IMGS--------------------------------- */
+.hidden{
+    display: none;
+}
 .manga-imgs{
     position: fixed;
     display: flex;

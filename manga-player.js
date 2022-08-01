@@ -143,36 +143,44 @@ let pageCounter = document.querySelector('.page-counter')
 
 let mangaCover = document.querySelector('.manga-cover')
 
-    right.addEventListener('click', ()=>{
+    
+function fillingDivs(){
+    for(i of pages){
         zero++;
-        if (zero === createdDivs.length){
-            zero -= 1;
-            // document.location.href = "http://127.0.0.1:5501/index.html"
-           }
-        console.log(zero)
-        pageCounter.textContent = `${zero+1}/${createdDivs.length}`
-        createdDivs[zero].innerHTML = `<div style="background-image: url(${pages[zero].src})"></div>`
-        
+        createdDivs[zero].innerHTML = `<div style="background-image: url(${i.src})"></div>`
+    }
+}
+fillingDivs()
 
+createdDivs.forEach(e => e.classList.add('hidden'))
 
-        createdDivs[zero - 1].innerHTML = ''
-        mangaCover.style.display =  'none'
+let newZero = -1;
 
-        // createdDivs[zero].innerHTML = `<div style="background-image: url(${pages[zero+1].src})"></div>`
-    })
-
+right.addEventListener('click', ()=>{
+    newZero++;
+    mangaCover.style.display =  'none'
+    if (newZero === createdDivs.length){
+        newZero -= 1;
+        // document.location.href = "http://127.0.0.1:5501/index.html"
+       }
+    pageCounter.textContent = `${newZero+1}/${createdDivs.length}`
+    createdDivs[newZero].classList.remove('hidden')
+    createdDivs[newZero - 1].classList.add('hidden')
+    console.log(newZero)
+})
+ 
     left.addEventListener('click',()=>{
-        zero--;
-        if (zero < 0){
-            zero += 1;
+        newZero--;
+        if (newZero < 0){
+            newZero += 1;
         }
-        console.log(zero)
-        createdDivs[zero].innerHTML = `<div style="background-image: url(${pages[zero].src})"></div>`
-       
-        createdDivs[zero + 1].innerHTML = ''
-        pageCounter.textContent = `${zero+1}/${createdDivs.length}`
+        console.log(newZero)
+        createdDivs[newZero].classList.remove('hidden')
+        createdDivs[newZero + 1].classList.add('hidden')
+
+        pageCounter.textContent = `${newZero+1}/${createdDivs.length}`
     })
-    pageCounter.textContent = `${zero+1}/${createdDivs.length}`
+    pageCounter.textContent = `${newZero+1}/${createdDivs.length}`
 
     rightArrow = document.querySelector('#right-arrow')
     rightArrow.addEventListener('animationend',()=>{
