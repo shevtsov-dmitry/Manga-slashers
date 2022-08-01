@@ -143,24 +143,28 @@ let pageCounter = document.querySelector('.page-counter')
 
 let mangaCover = document.querySelector('.manga-cover')
 
-    right.addEventListener('click', ()=>{
+    
+function fillingDivs(){
+    for(i of pages){
         zero++;
-        if (zero === createdDivs.length){
-            zero -= 1;
-            // document.location.href = "http://127.0.0.1:5501/index.html"
-           }
-        console.log(zero)
-        pageCounter.textContent = `${zero+1}/${createdDivs.length}`
-        createdDivs[zero].innerHTML = `<div style="background-image: url(${pages[zero].src})"></div>`
-        
+        createdDivs[zero].innerHTML = `<div style="background-image: url(${i.src})"></div>`
+    }
+}
+fillingDivs()
 
+createdDivs.forEach(e => e.classList.add('hidden'))
 
-        createdDivs[zero - 1].innerHTML = ''
-        mangaCover.style.display =  'none'
-
-        // createdDivs[zero].innerHTML = `<div style="background-image: url(${pages[zero+1].src})"></div>`
-    })
-
+right.addEventListener('click', ()=>{
+    zero++;
+    mangaCover.style.display =  'none'
+    if (zero === createdDivs.length){
+        zero -= 1;
+        // document.location.href = "http://127.0.0.1:5501/index.html"
+       }
+    pageCounter.textContent = `${zero+1}/${createdDivs.length}`
+    
+})
+ 
     left.addEventListener('click',()=>{
         zero--;
         if (zero < 0){
