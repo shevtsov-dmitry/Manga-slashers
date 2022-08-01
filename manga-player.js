@@ -56,6 +56,10 @@ chaptersBasic.style.transition = 'all 0.8s'
     // -------DATA 1 Chapter---------
 
 let pages = [
+    // {
+        // page: 0,
+        // src: 'imgs/manga/page1.jpeg'
+    // }, 
     {
         page: 1,
         src: 'imgs/manga/page1.jpeg'
@@ -143,14 +147,18 @@ let mangaCover = document.querySelector('.manga-cover')
         zero++;
         if (zero === createdDivs.length){
             zero -= 1;
-            document.location.href = "http://127.0.0.1:5501/index.html"
+            // document.location.href = "http://127.0.0.1:5501/index.html"
            }
         console.log(zero)
         pageCounter.textContent = `${zero+1}/${createdDivs.length}`
-
         createdDivs[zero].innerHTML = `<div style="background-image: url(${pages[zero].src})"></div>`
+        
+
+
         createdDivs[zero - 1].innerHTML = ''
         mangaCover.style.display =  'none'
+
+        // createdDivs[zero].innerHTML = `<div style="background-image: url(${pages[zero+1].src})"></div>`
     })
 
     left.addEventListener('click',()=>{
@@ -165,7 +173,6 @@ let mangaCover = document.querySelector('.manga-cover')
         pageCounter.textContent = `${zero+1}/${createdDivs.length}`
     })
     pageCounter.textContent = `${zero+1}/${createdDivs.length}`
-
 
     rightArrow = document.querySelector('#right-arrow')
     rightArrow.addEventListener('animationend',()=>{
