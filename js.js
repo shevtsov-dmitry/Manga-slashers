@@ -191,40 +191,22 @@ CI8.addEventListener("mouseenter", ()=> {
         CI8.style.transition = "margin-top 0.15s linear"
     })
 })
+
+    // ------------------------NAV-PANEL PRESS ANIMATION--------------------------------
+
 let activeAnimation = document.getElementsByClassName('nav-button')
 
-    activeAnimation[0].addEventListener('click',()=>{
-        activeAnimation[0].style.animation = "active 0.3s ease";
-        activeAnimation[0].addEventListener('animationend',()=>{
-        activeAnimation[0].style.animation = ""
+    for (const i of activeAnimation) {
+        i.addEventListener('click',()=>{
+            i.style.animation = "active 0.3s ease";
+            i.addEventListener('animationend',()=>{
+                i.style.animation = ""
+            })
         })
-    })
-    activeAnimation[1].addEventListener('click',()=>{
-        activeAnimation[1].style.animation = "active 0.3s ease";
-        activeAnimation[1].addEventListener('animationend',()=>{
-        activeAnimation[1].style.animation = ""
-        })
-    })
-    activeAnimation[2].addEventListener('click',()=>{
-        activeAnimation[2].style.animation = "active 0.3s ease";
-        activeAnimation[2].addEventListener('animationend',()=>{
-        activeAnimation[2].style.animation = ""
-        })
-    })
-    activeAnimation[3].addEventListener('click',()=>{
-        activeAnimation[3].style.animation = "active 0.3s ease";
-        activeAnimation[3].addEventListener('animationend',()=>{
-        activeAnimation[3].style.animation = ""
-        })
-    })
-    activeAnimation[4].addEventListener('click',()=>{
-        activeAnimation[4].style.animation = "active 0.3s ease";
-        activeAnimation[4].addEventListener('animationend',()=>{
-        activeAnimation[4].style.animation = ""
-        })
-    })
+    }
 
     // ------------------------MANGA-BUTTON--------------------------------
+
     let manga = document.querySelector('.manga-invisible')
     
     manga.addEventListener('mouseenter',()=>{
@@ -238,7 +220,6 @@ let activeAnimation = document.getElementsByClassName('nav-button')
             
         })
     })
-    // document.addEventListener('animationend')
 
     let section1 = document.querySelector('#section-section1'),
         section2 = document.querySelector('#section-section2'),
@@ -246,33 +227,10 @@ let activeAnimation = document.getElementsByClassName('nav-button')
         section4 = document.querySelector('#section-section4'),
         section5 = document.querySelector('#section-section5');
 
-    section1.addEventListener('mouseenter', ()=>{
-        activeAnimation[0].classList.add('black-background')
-            section1.addEventListener('mouseleave', ()=>{
-            activeAnimation[0].classList.remove('black-background')
-        })
-    }) 
-    section2.addEventListener('mouseenter', ()=>{
-        activeAnimation[1].classList.add('black-background')
-            section2.addEventListener('mouseleave', ()=>{
-            activeAnimation[1].classList.remove('black-background')
-        })
-    }) 
-    section3.addEventListener('mouseenter', ()=>{
-        activeAnimation[2].classList.add('black-background')
-            section3.addEventListener('mouseleave', ()=>{
-            activeAnimation[2].classList.remove('black-background')
-        })
-    }) 
-    section4.addEventListener('mouseenter', ()=>{
-        activeAnimation[3].classList.add('black-background')
-            section4.addEventListener('mouseleave', ()=>{
-            activeAnimation[3].classList.remove('black-background')
-        })
-    }) 
-    section5.addEventListener('mouseenter', ()=>{
-        activeAnimation[4].classList.add('black-background')
-            section5.addEventListener('mouseleave', ()=>{
-            activeAnimation[4].classList.remove('black-background')
-        })
-    }) 
+    // section1.addEventListener('mouseenter', ()=>{
+        // activeAnimation[0].classList.add('black-background')
+            // section1.addEventListener('mouseleave', ()=>{
+            // activeAnimation[0].classList.remove('black-background')
+        // })
+    // }) 
+
