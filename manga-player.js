@@ -56,10 +56,11 @@ chaptersBasic.style.transition = 'all 0.8s'
     // -------DATA 1 Chapter---------
 
 let pages = [
-    // {
-        // page: 0,
-        // src: 'imgs/manga/page1.jpeg'
-    // }, 
+    {
+        status:'blank space',
+        page: 0,
+        src: 'imgs/blank-space.jpg'
+    }, 
     {
         page: 1,
         src: 'imgs/manga/page1.jpeg'
@@ -115,7 +116,20 @@ let pages = [
     {
         page: 14,
         src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/017.png'
-    }
+    },
+
+    // INSERT IMGS ABOVE
+    // BLANK SPACES BELOW
+    {
+        page: "doesn't matter",
+        status:'blank space',
+        src: 'imgs/blank-space.jpg'
+    },
+    {
+        page: "doesn't matter",
+        status:'blank space',
+        src: 'imgs/blank-space.jpg'
+    } 
 ]
 // -------DIVS----------
 
@@ -154,33 +168,59 @@ fillingDivs()
 
 createdDivs.forEach(e => e.classList.add('hidden'))
 
-let newZero = -1;
+let newZero = 0;
 
 right.addEventListener('click', ()=>{
     newZero++;
     mangaCover.style.display =  'none'
-    if (newZero === createdDivs.length){
+    if (newZero === createdDivs.length - 2){
         newZero -= 1;
         // document.location.href = "http://127.0.0.1:5501/index.html"
        }
-    pageCounter.textContent = `${newZero+1}/${createdDivs.length}`
+
+    pageCounter.textContent = `${newZero}/${createdDivs.length-3}`
+    
+    createdDivs[newZero + 1].classList.remove('hidden')
+    createdDivs[newZero + 2].classList.remove('hidden')
+    createdDivs[newZero + 1].style.opacity = '0'
+    createdDivs[newZero + 2].style.opacity = '0'
+    createdDivs[newZero + 1].style.zIndex = '0'
+    createdDivs[newZero + 2].style.zIndex = '0'
+
+    createdDivs[newZero - 1].classList.remove('hidden')
+    createdDivs[newZero - 1].style.opacity = '0'
+    createdDivs[newZero - 1].style.zIndex = '0'
+
     createdDivs[newZero].classList.remove('hidden')
+    createdDivs[newZero].style.opacity = '1'
+    createdDivs[newZero].style.zIndex = '1'
+
+    
     createdDivs[newZero - 1].classList.add('hidden')
     console.log(newZero)
 })
  
     left.addEventListener('click',()=>{
         newZero--;
-        if (newZero < 0){
+        if (newZero < 1){
             newZero += 1;
         }
-        console.log(newZero)
-        createdDivs[newZero].classList.remove('hidden')
-        createdDivs[newZero + 1].classList.add('hidden')
+        createdDivs[newZero + 2].classList.add('hidden')
+        createdDivs[newZero + 3].classList.add('hidden')
 
-        pageCounter.textContent = `${newZero+1}/${createdDivs.length}`
+        createdDivs[newZero + 1].classList.remove('hidden')
+        createdDivs[newZero + 1].style.opacity = '0'
+        createdDivs[newZero + 1].style.zIndex = '0'
+
+        createdDivs[newZero].classList.remove('hidden')
+        createdDivs[newZero].style.opacity = '1'
+        createdDivs[newZero].style.zIndex = '1'
+
+        pageCounter.textContent = `${newZero}/${createdDivs.length-3}`
+
+        console.log(newZero)
     })
-    pageCounter.textContent = `${newZero+1}/${createdDivs.length}`
+    pageCounter.textContent = `${newZero}/${createdDivs.length-3}`
 
     rightArrow = document.querySelector('#right-arrow')
     rightArrow.addEventListener('animationend',()=>{

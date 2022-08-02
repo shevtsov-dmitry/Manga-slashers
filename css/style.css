@@ -47,21 +47,22 @@ section {
 }
 .elder-scroll {
     position:absolute;
-    bottom: -100px;
-    margin:0;
-    padding: 0;
-    height:100vh;
+    height:90vh;
     width: 500vw;
     background-image: url(/imgs/newScroll.png);
+    /* background-size:cover; */
     background-repeat:no-repeat;
-    
 }
-/* .for-ES {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+.for-ES{
+    margin-top: 10vh;
+    position: absolute;
+    /* padding-bottom: -100px; */
+    width: 500vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
     align-items: center;
-} */
+}
 .container {
     margin: 0;
     padding: 0;
@@ -122,11 +123,12 @@ section {
 }
 /* ---------------------------------MANGA-BUTTON--------------------------------- */
 .manga-invisible{
+    display: block;
     z-index: 11;
     position: fixed;
     top: 25px;
     left: 10%;
-    width: 9%;
+    width: 5%;
     height: 9%;
     background-image: url(https://cdn-icons-png.flaticon.com/512/4908/4908771.png);
     background-size: contain;
@@ -144,7 +146,7 @@ section {
     content: '';
     display: block;
     background-image: url(https://cdn-icons-png.flaticon.com/512/4908/4908770.png);
-    width: 9%;
+    width: 5%;
     height: 9%;
     background-size: contain;
     transition: 0.2s linear;
@@ -560,15 +562,6 @@ section {
     grid-template-rows:1fr 1fr;
     grid-column-gap: 50px;
 }
-
-.CI1{background-image: url(/imgs/BatmanWithDogs.jpg);}
-.CI2{background-image: url(/imgs/BoyWithGutsAndDeads.jpeg);   }
-.CI3{background-image: url(/imgs/divaWithTheSword.jpg);}
-.CI4{background-image: url(/imgs/DriverManga.jpeg);}
-.CI5{background-image: url(/imgs/dudeWithCigaretteInTheHospital.jpeg);}
-.CI6{background-image: url(/imgs/MangaBoyWithRedFaceBackground.jpeg);}
-.CI7{background-image: url(/imgs/SadakoOnSemetary.jpg);}
-.CI8{background-image: url(/imgs/WizardIsHoldingGuy.jpg);}
 
 .gog {
     position:relative;
