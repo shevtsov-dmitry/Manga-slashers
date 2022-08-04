@@ -26,6 +26,9 @@ let icons = document.querySelectorAll('.icon');
 let MWI = document.getElementById('mutual-wrapper-icon');
 
 // icons fade out animation
+MWI.addEventListener('animationend',()=>{
+    MWI.style.animation = 'none'
+})
 MWI.addEventListener('click',()=>{
     MWI.style.display = 'none'
     let closeIcons = document.createElement('div')
