@@ -22,257 +22,140 @@ $(document).on('click','.scroll5', function () {
 
 // ------------------------------------------------------- // 
 
-let icons = document.querySelector('.icons');
+let icons = document.querySelectorAll('.icon');
 let MWI = document.getElementById('mutual-wrapper-icon');
-let closeId = document.querySelector('#close-icon');
-let idTwitter = document.getElementById('idTwitter');
-let idInstagram = document.getElementById('idInstagram');
-let idOpensea = document.getElementById('idOpensea');
-let idRarible = document.getElementById('idDiscord');
-let idTelegram = document.getElementById('idTelegram');
 
 // icons fade out animation
-
 MWI.addEventListener('click',()=>{
-    icons.style.cursor = 'pointer';
-    idTwitter.style.opacity = "100";
-    idInstagram.style.opacity = "100%";
-    idOpensea.style.opacity = "100%";
-    idRarible.style.opacity = "100%";
-    idTelegram.style.opacity = "100%";
+    MWI.style.display = 'none'
+    let closeIcons = document.createElement('div')
+    closeIcons.classList.add('close-icons')
+    MWI.insertAdjacentElement('beforebegin', closeIcons)
 
-    idTwitter.style.transition = "opacity 1.5s ease-in";
-    idInstagram.style.transition = "opacity 1.25s ease-in";
-    idOpensea.style.transition = "opacity 1s ease-in";
-    idRarible.style.transition = "opacity 0.8s ease-in";
-    idTelegram.style.transition = "opacity 0.5s ease-in";
-
-    MWI.style.opacity = "0";
-    MWI.style.transition = "opacity 0.1 linear";
-    closeId.style.opacity = '100';
-    closeId.style.display = 'initial';
-    closeId.classList.add('pop-goes', 'display-something');
-})
-
-closeId.addEventListener('click',()=>{
-    icons.style.cursor = 'initial';
-    idTwitter.style.opacity = "0%";
-    idInstagram.style.opacity = "0%";
-    idOpensea.style.opacity = "0%";
-    idRarible.style.opacity = "0%";
-    idTelegram.style.opacity = "0%";
-
-    idTwitter.style.transition = "opacity 0.5s ease-in";
-    idInstagram.style.transition = "opacity 0.8s ease-in";
-    idOpensea.style.transition = "opacity 1s ease-in";
-    idRarible.style.transition = "opacity 1.25s ease-in";
-    idTelegram.style.transition = "opacity 1.5s ease-in";
-
-    MWI.style.opacity = "100";
-    closeId.style.display = 'none';
+    for (const i of icons) {
+        i.style.opacity = '1';
+    }
     
+    icons[0].style.transition = "opacity 0.5s ease-in";
+    icons[1].style.transition = "opacity 0.8s ease-in";
+    icons[2].style.transition = "opacity 1s ease-in";
+    icons[3].style.transition = "opacity 1.25s ease-in";
+    icons[4].style.transition = "opacity 1.5s ease-in";
+
+    closeIcons.addEventListener('click',()=>{
+        for (const i of icons) {
+            i.style.opacity = '0';
+        }
+        icons[0].style.transition = "opacity 1.5s ease-in";
+        icons[1].style.transition = "opacity 1.25s ease-in";
+        icons[2].style.transition = "opacity 1s ease-in";
+        icons[3].style.transition = "opacity 0.8s ease-in";
+        icons[4].style.transition = "opacity 0.5s ease-in";
+
+        // closeIcons.style.transition = 'all 0.5s linear 1.5s'
+        // closeIcons.style.opacity = 0;
+            closeIcons.style.display = 'none'
+            MWI.style.display = 'block'
+    })
 })
 
 let MWIcolor = document.querySelector('.icons-wrapper-color')
 
 MWI.addEventListener('mouseenter',()=>{
     
-    MWI.classList.add('icons-wrapper-color')   
+    MWI.classList.add('icons-wrapper-color')
+    MWI.style.transition = 'all 0.3s'
     MWI.addEventListener('mouseleave',()=>{
         MWI.classList.remove('icons-wrapper-color')
         
     })
     
 })
-//----------------------------------------------------------------------------//
+//------------------------------COLLECTION-IMGS-----------------------------//
 
-let CI1 = document.querySelector('.CI1');
-let CI2 = document.querySelector('.CI2');
-let CI3 = document.querySelector('.CI3');
-let CI4 = document.querySelector('.CI4');
-let CI5 = document.querySelector('.CI5');
-let CI6 = document.querySelector('.CI6');
-let CI7 = document.querySelector('.CI7');
-let CI8 = document.querySelector('.CI8');
+let collectionItem = document.querySelectorAll('.collection-item')
 
-CI1.addEventListener("mouseenter", ()=> {
-    let CI1ID = document.createElement ("div")
-    CI1ID.classList.add('gog')
-    CI1.style.marginTop = "-30px"
-    CI1.style.transition = "margin-top 0.3s linear"
-    CI1.insertAdjacentElement('afterBegin', CI1ID)
-    CI1.addEventListener("mouseleave", ()=> {
-        CI1ID.remove("div")
-        CI1.style.marginTop = "0px"
-        CI1.style.transition = "margin-top 0.15s linear"
+let collectionObjects = [
+    {
+        n: 1,
+        src:'/imgs/WizardIsHoldingGuy.jpg'
+    },
+    {
+        n: 2,
+        src:'/imgs/BoyWithGutsAndDeads.jpeg'
+    },
+    {
+        n: 3,
+        src:'/imgs/divaWithTheSword.jpg'
+    },
+    {
+        n: 4,
+        src:'/imgs/DriverManga.jpeg'
+    },
+    {
+        n: 5,
+        src:'/imgs/dudeWithCigaretteInTheHospital.jpeg'
+    },
+    {
+        n: 6,
+        src:'/imgs/MangaBoyWithRedFaceBackground.jpeg'
+    },
+    {
+        n: 7,
+        src:'/imgs/SadakoOnSemetary.jpg'
+    },
+    {
+        n: 8,
+        src:'/imgs/BatmanWithDogs.jpg'
+    },
+]
+
+
+//  ----------------PULL UP ANIMATION--------------------
+let plusPlus = -1;
+
+for (const i of collectionItem) {
+    i.addEventListener('mouseenter', ()=>{
+        let iDiv = document.createElement('div')
+        iDiv.classList.add('gog')
+        i.style.marginTop = "-30px"
+        i.style.transition = "margin-top 0.3s linear"
+        i.insertAdjacentElement('afterBegin', iDiv)
+        i.addEventListener('mouseleave', ()=>{
+            iDiv.remove("div")
+            i.style.marginTop = "0px"
+            i.style.transition = "margin-top 0.15s linear"
+        })
     })
-})
-CI2.addEventListener("mouseenter", ()=> {
-    let CI2ID = document.createElement ("div")
-    CI2ID.classList.add('gog')
-    CI2.style.marginTop = "-30px"
-    CI2.style.transition = "margin-top 0.3s linear"
-    CI2.insertAdjacentElement('afterBegin', CI2ID)
-    CI2.addEventListener("mouseleave", ()=> {
-        CI2ID.remove("div")
-        CI2.style.marginTop = "0px"
-        CI2.style.transition = "margin-top 0.15s linear"
-    })
-})
-CI3.addEventListener("mouseenter", ()=> {
-    let CI3ID = document.createElement ("div")
-    CI3ID.classList.add('gog')
-    CI3.style.marginTop = "-30px"
-    CI3.style.transition = "margin-top 0.3s linear"
-    CI3.insertAdjacentElement('afterBegin', CI3ID)
-    CI3.addEventListener("mouseleave", ()=> {
-        CI3ID.remove("div")
-        CI3.style.marginTop = "0px"
-        CI3.style.transition = "margin-top 0.15s linear"
-    })
-})
-CI4.addEventListener("mouseenter", ()=> {
-    let CI4ID = document.createElement ("div")
-    CI4ID.classList.add('gog')
-    CI4.style.marginTop = "-30px"
-    CI4.style.transition = "margin-top 0.3s linear"
-    CI4.insertAdjacentElement('afterBegin', CI4ID)
-    CI4.addEventListener("mouseleave", ()=> {
-        CI4ID.remove("div")
-        CI4.style.marginTop = "0px"
-        CI4.style.transition = "margin-top 0.15s linear"
-    })
-})
-CI5.addEventListener("mouseenter", ()=> {
-    let CI5ID = document.createElement ("div")
-    CI5ID.classList.add('gog')
-    CI5.style.marginTop = "-30px"
-    CI5.style.transition = "margin-top 0.3s linear"
-    CI5.insertAdjacentElement('afterBegin', CI5ID)
-    CI5.addEventListener("mouseleave", ()=> {
-        CI5ID.remove("div")
-        CI5.style.marginTop = "0px"
-        CI5.style.transition = "margin-top 0.15s linear"
-    })
-})
-CI6.addEventListener("mouseenter", ()=> {
-    let CI6ID = document.createElement ("div")
-    CI6ID.classList.add('gog')
-    CI6.style.marginTop = "-30px"
-    CI6.style.transition = "margin-top 0.3s linear"
-    CI6.insertAdjacentElement('afterBegin', CI6ID)
-    CI6.addEventListener("mouseleave", ()=> {
-        CI6ID.remove("div")
-        CI6.style.marginTop = "0px"
-        CI6.style.transition = "margin-top 0.15s linear"
-    })
-})
-CI7.addEventListener("mouseenter", ()=> {
-    let CI7ID = document.createElement ("div")
-    CI7ID.classList.add('gog')
-    CI7.style.marginTop = "-30px"
-    CI7.style.transition = "margin-top 0.3s linear"
-    CI7.insertAdjacentElement('afterBegin', CI7ID)
-    CI7.addEventListener("mouseleave", ()=> {
-        CI7ID.remove("div")
-        CI7.style.marginTop = "0px"
-        CI7.style.transition = "margin-top 0.15s linear"
-    })
-})
-CI8.addEventListener("mouseenter", ()=> {
-    let CI8ID = document.createElement ("div")
-    CI8ID.classList.add('gog')
-    CI8.style.marginTop = "-30px"
-    CI8.style.transition = "margin-top 0.3s linear"
-    CI8.insertAdjacentElement('afterBegin', CI8ID)
-    CI8.addEventListener("mouseleave", ()=> {
-        CI8ID.remove("div")
-        CI8.style.marginTop = "0px"
-        CI8.style.transition = "margin-top 0.15s linear"
-    })
-})
+
+    plusPlus++;
+    i.style.backgroundImage = `url(${collectionObjects[plusPlus].src})`
+}
+
+    // ----------------NAV-PANEL PRESS ANIMATION--------------------
+
 let activeAnimation = document.getElementsByClassName('nav-button')
 
-    activeAnimation[0].addEventListener('click',()=>{
-        activeAnimation[0].style.animation = "active 0.3s ease";
-        activeAnimation[0].addEventListener('animationend',()=>{
-        activeAnimation[0].style.animation = ""
+for (const i of activeAnimation) {
+    i.addEventListener('click',()=>{
+        i.style.animation = "active 0.3s ease";
+        i.addEventListener('animationend',()=>{
+            i.style.animation = ""
         })
     })
-    activeAnimation[1].addEventListener('click',()=>{
-        activeAnimation[1].style.animation = "active 0.3s ease";
-        activeAnimation[1].addEventListener('animationend',()=>{
-        activeAnimation[1].style.animation = ""
-        })
-    })
-    activeAnimation[2].addEventListener('click',()=>{
-        activeAnimation[2].style.animation = "active 0.3s ease";
-        activeAnimation[2].addEventListener('animationend',()=>{
-        activeAnimation[2].style.animation = ""
-        })
-    })
-    activeAnimation[3].addEventListener('click',()=>{
-        activeAnimation[3].style.animation = "active 0.3s ease";
-        activeAnimation[3].addEventListener('animationend',()=>{
-        activeAnimation[3].style.animation = ""
-        })
-    })
-    activeAnimation[4].addEventListener('click',()=>{
-        activeAnimation[4].style.animation = "active 0.3s ease";
-        activeAnimation[4].addEventListener('animationend',()=>{
-        activeAnimation[4].style.animation = ""
-        })
-    })
+}
+// ------------------------MANGA-BUTTON--------------------------------
 
-    // ------------------------MANGA-BUTTON--------------------------------
-    let manga = document.querySelector('.manga-invisible')
+let manga = document.querySelector('.manga-invisible')
+
+manga.addEventListener('mouseenter',()=>{
+    manga.classList.add('manga-button')
     
-    manga.addEventListener('mouseenter',()=>{
-        manga.classList.add('manga-button')
+    manga.addEventListener('mouseleave',()=>{
+        manga.classList.remove('manga-button')
         
-        manga.addEventListener('mouseleave',()=>{
-            manga.classList.remove('manga-button')
-            
-        })
-        manga.addEventListener('animationend',()=>{
-            
-        })
     })
-    // document.addEventListener('animationend')
-
-    let section1 = document.querySelector('#section-section1'),
-        section2 = document.querySelector('#section-section2'),
-        section3 = document.querySelector('#section-section3'),
-        section4 = document.querySelector('#section-section4'),
-        section5 = document.querySelector('#section-section5');
-
-    section1.addEventListener('mouseenter', ()=>{
-        activeAnimation[0].classList.add('black-background')
-            section1.addEventListener('mouseleave', ()=>{
-            activeAnimation[0].classList.remove('black-background')
-        })
-    }) 
-    section2.addEventListener('mouseenter', ()=>{
-        activeAnimation[1].classList.add('black-background')
-            section2.addEventListener('mouseleave', ()=>{
-            activeAnimation[1].classList.remove('black-background')
-        })
-    }) 
-    section3.addEventListener('mouseenter', ()=>{
-        activeAnimation[2].classList.add('black-background')
-            section3.addEventListener('mouseleave', ()=>{
-            activeAnimation[2].classList.remove('black-background')
-        })
-    }) 
-    section4.addEventListener('mouseenter', ()=>{
-        activeAnimation[3].classList.add('black-background')
-            section4.addEventListener('mouseleave', ()=>{
-            activeAnimation[3].classList.remove('black-background')
-        })
-    }) 
-    section5.addEventListener('mouseenter', ()=>{
-        activeAnimation[4].classList.add('black-background')
-            section5.addEventListener('mouseleave', ()=>{
-            activeAnimation[4].classList.remove('black-background')
-        })
-    }) 
+    manga.addEventListener('animationend',()=>{
+        
+    })
+})
