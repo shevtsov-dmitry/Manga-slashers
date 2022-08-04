@@ -1,3 +1,25 @@
+    // -------DATA FOR CHAPTERS---------
+
+    let pages = [
+        {
+            status:'blank space',
+            page: 0,
+            src: 'imgs/blank-space.jpg'
+        }, 
+        // INSERT IMGS ABOVE
+        // BLANK SPACES BELOW
+        {
+            page: "doesn't matter",
+            status:'blank space',
+            src: 'imgs/blank-space.jpg'
+        },
+        {
+            page: "doesn't matter",
+            status:'blank space',
+            src: 'imgs/blank-space.jpg'
+        } 
+    ]
+
 // ------------------------MANGA-BUTTON--------------------------------
 let manga = document.querySelector('.manga-invisible');
 let forMangaPlayer = document.querySelector('.for-manga-pannel');
@@ -53,84 +75,7 @@ chaptersBasic.style.transition = 'all 0.8s'
 // =====================PAGE-SWITCHING===========================
 
 
-    // -------DATA 1 Chapter---------
 
-let pages = [
-    {
-        status:'blank space',
-        page: 0,
-        src: 'imgs/blank-space.jpg'
-    }, 
-    {
-        page: 1,
-        src: 'imgs/manga/page1.jpeg'
-    }, 
-    {
-        page: 2,
-        src: 'imgs/manga/2page.jpg'
-    },
-    {
-        page: 3,
-        src: 'imgs/manga/3page.jfif'
-    },
-    {
-        page: 4,
-        src: 'imgs/manga/4page.jpg'
-    },
-    {
-        page: 5,
-        src: 'imgs/manga/5page.jfif'
-    },
-    {
-        page: 6,
-        src: 'imgs/manga/6page.jpg'
-    },
-    {
-        page: 7,
-        src: 'imgs/manga/7page.jpg'
-    },
-    {
-        page: 8,
-        src: 'imgs/manga/8.jpg'
-    },
-    {
-        page: 9,
-        src: 'imgs/manga/9page.jfif'
-    },
-    {
-        page: 10,
-        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/013.png'
-    },
-    {
-        page: 11,
-        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/014.png'
-    },
-    {
-        page: 12,
-        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/015.png'
-    },
-    {
-        page: 13,
-        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/016.png'
-    },
-    {
-        page: 14,
-        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/017.png'
-    },
-
-    // INSERT IMGS ABOVE
-    // BLANK SPACES BELOW
-    {
-        page: "doesn't matter",
-        status:'blank space',
-        src: 'imgs/blank-space.jpg'
-    },
-    {
-        page: "doesn't matter",
-        status:'blank space',
-        src: 'imgs/blank-space.jpg'
-    } 
-]
 // -------DIVS----------
 
 const mangaImgs = document.querySelector('.manga-imgs')
@@ -155,9 +100,6 @@ let rightAdd = document.querySelector('.right-slide-additional'),
 
 let pageCounter = document.querySelector('.page-counter')
 
-let mangaCover = document.querySelector('.manga-cover')
-
-    
 function fillingDivs(){
     for(i of pages){
         zero++;
@@ -170,12 +112,14 @@ createdDivs.forEach(e => e.classList.add('hidden'))
 
 let newZero = 0;
 
+let mangaCover = document.querySelector('.manga-cover')
+
 right.addEventListener('click', ()=>{
     newZero++;
     mangaCover.style.display =  'none'
     if (newZero === createdDivs.length - 2){
         newZero -= 1;
-        document.location.href = "chapters/chapter1.html"
+        // document.location.href = "http://127.0.0.1:5501/index.html"
        }
 
     pageCounter.textContent = `${newZero}/${createdDivs.length-3}`
@@ -221,8 +165,3 @@ right.addEventListener('click', ()=>{
         console.log(newZero)
     })
     pageCounter.textContent = `${newZero}/${createdDivs.length-3}`
-
-    rightArrow = document.querySelector('#right-arrow')
-    rightArrow.addEventListener('animationend',()=>{
-        rightArrow.style.opacity = '0'
-    })

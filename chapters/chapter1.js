@@ -1,4 +1,129 @@
-// ------------------------MANGA-BUTTON--------------------------------
+let pages = [
+    {
+        status:'blank space',
+        page: 0,
+        src: ''
+    }, 
+    {
+        status:'blank space',
+        page: 1,
+        src: '	https://img3.cdnlib.link//manga/one-piece/chapters/1068407/02_sFEG.png'
+    }, 
+    {
+        status:'blank space',
+        page: 2,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1068407/03_C6a9.png'
+    }, 
+    {
+        status:'blank space',
+        page: 3,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1068407/04_200K.png'
+    }, 
+    {
+        status:'blank space',
+        page: 4,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1068407/05_etq8.png'
+    }, 
+    {
+        status:'blank space',
+        page: 5,
+        src: '	https://img3.cdnlib.link//manga/one-piece/chapters/1068407/06_WHnw.png'
+    }, 
+    {
+        status:'blank space',
+        page: 6,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1068407/07_1pqs.png'
+    }, 
+    {
+        status:'blank space',
+        page: 7,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1068407/08_eGzy.png'
+    }, 
+    {
+        status:'blank space',
+        page: 8,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1068407/09_KcXh.png'
+    }, 
+    {
+        status:'blank space',
+        page: 9,
+        src: '	https://img3.cdnlib.link//manga/one-piece/chapters/1068407/10_XmPU.png'
+    }, 
+    {
+        status:'blank space',
+        page: 10,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1068407/11_OADA.png'
+    }, 
+    {
+        status:'blank space',
+        page: 11,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1120732/10-11_Uqhl.png'
+    }, 
+    {
+        status:'blank space',
+        page: 12,
+        src: '	https://img3.cdnlib.link//manga/one-piece/chapters/1068407/14_e6BL.png'
+    }, 
+    {
+        status:'blank space',
+        page: 13,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1068407/15_2dsy.png'
+    }, 
+    {
+        status:'blank space',
+        page: 14,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1068407/16-17_By4P.png'
+    }, 
+    {
+        status:'blank space',
+        page: 15,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1120732/01_TxeI.png'
+    }, 
+    {
+        status:'blank space',
+        page: 16,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1120732/02_RAQD.png'
+    }, 
+    {
+        status:'blank space',
+        page: 17,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1120732/12-13_8zc0.png'
+    }, 
+    {
+        status:'blank space',
+        page: 18,
+        src: '	https://img3.cdnlib.link//manga/one-piece/chapters/1120732/04-05_QT27.png'
+    }, 
+    {
+        status:'blank space',
+        page: 19,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1120732/06-07_aR7q.png'
+    },
+    {
+        status:'blank space',
+        page: 20,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1120732/08_o2HD.png'
+    }, 
+    {
+        status:'blank space',
+        page: 21,
+        src: 'https://img3.cdnlib.link//manga/one-piece/chapters/1120732/09_Dr07.png'
+    }, 
+
+    // INSERT IMGS ABOVE
+    // BLANK SPACES BELOW
+    {
+        page: "doesn't matter",
+        status:'blank space',
+        src: 'imgs/blank-space.jpg'
+    },
+    {
+        page: "doesn't matter",
+        status:'blank space',
+        src: 'imgs/blank-space.jpg'
+    } 
+
+]
 let manga = document.querySelector('.manga-invisible');
 let forMangaPlayer = document.querySelector('.for-manga-pannel');
 let liM = document.getElementsByClassName('liM');
@@ -53,84 +178,7 @@ chaptersBasic.style.transition = 'all 0.8s'
 // =====================PAGE-SWITCHING===========================
 
 
-    // -------DATA 1 Chapter---------
 
-let pages = [
-    {
-        status:'blank space',
-        page: 0,
-        src: 'imgs/blank-space.jpg'
-    }, 
-    {
-        page: 1,
-        src: 'imgs/manga/page1.jpeg'
-    }, 
-    {
-        page: 2,
-        src: 'imgs/manga/2page.jpg'
-    },
-    {
-        page: 3,
-        src: 'imgs/manga/3page.jfif'
-    },
-    {
-        page: 4,
-        src: 'imgs/manga/4page.jpg'
-    },
-    {
-        page: 5,
-        src: 'imgs/manga/5page.jfif'
-    },
-    {
-        page: 6,
-        src: 'imgs/manga/6page.jpg'
-    },
-    {
-        page: 7,
-        src: 'imgs/manga/7page.jpg'
-    },
-    {
-        page: 8,
-        src: 'imgs/manga/8.jpg'
-    },
-    {
-        page: 9,
-        src: 'imgs/manga/9page.jfif'
-    },
-    {
-        page: 10,
-        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/013.png'
-    },
-    {
-        page: 11,
-        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/014.png'
-    },
-    {
-        page: 12,
-        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/015.png'
-    },
-    {
-        page: 13,
-        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/016.png'
-    },
-    {
-        page: 14,
-        src: 'https://img3.cdnlib.link//manga/dorohedoro/chapters/1-1/017.png'
-    },
-
-    // INSERT IMGS ABOVE
-    // BLANK SPACES BELOW
-    {
-        page: "doesn't matter",
-        status:'blank space',
-        src: 'imgs/blank-space.jpg'
-    },
-    {
-        page: "doesn't matter",
-        status:'blank space',
-        src: 'imgs/blank-space.jpg'
-    } 
-]
 // -------DIVS----------
 
 const mangaImgs = document.querySelector('.manga-imgs')
@@ -155,9 +203,6 @@ let rightAdd = document.querySelector('.right-slide-additional'),
 
 let pageCounter = document.querySelector('.page-counter')
 
-let mangaCover = document.querySelector('.manga-cover')
-
-    
 function fillingDivs(){
     for(i of pages){
         zero++;
@@ -170,12 +215,14 @@ createdDivs.forEach(e => e.classList.add('hidden'))
 
 let newZero = 0;
 
+let mangaCover = document.querySelector('.manga-cover')
+
 right.addEventListener('click', ()=>{
     newZero++;
     mangaCover.style.display =  'none'
     if (newZero === createdDivs.length - 2){
         newZero -= 1;
-        document.location.href = "chapters/chapter1.html"
+        // document.location.href = "http://127.0.0.1:5501/index.html"
        }
 
     pageCounter.textContent = `${newZero}/${createdDivs.length-3}`
@@ -222,7 +269,4 @@ right.addEventListener('click', ()=>{
     })
     pageCounter.textContent = `${newZero}/${createdDivs.length-3}`
 
-    rightArrow = document.querySelector('#right-arrow')
-    rightArrow.addEventListener('animationend',()=>{
-        rightArrow.style.opacity = '0'
-    })
+    
