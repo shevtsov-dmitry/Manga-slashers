@@ -16,7 +16,7 @@ body{
     z-index: 11;
     position: fixed;
     top: 25px;
-    left: 10%;
+    left: 1%;
     width: 9%;
     height: 9%;
     background-repeat: no-repeat;
@@ -24,7 +24,6 @@ body{
     background-size: contain;
     transition:  0.25s linear;
     cursor: pointer;
-    animation: slide 0.7s ease-in-out 0.5s forwards;
 }
 .for-manga-pannel{
     margin-top: 41px;
