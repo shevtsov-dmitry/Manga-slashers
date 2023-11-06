@@ -175,7 +175,7 @@ right.addEventListener('click', ()=>{
     mangaCover.style.display =  'none'
     if (newZero === createdDivs.length - 2){
         newZero -= 1;
-        document.location.href = "chapters/chapter1.html"
+        document.location.href = "../chapters/chapter1.html"
        }
 
     pageCounter.textContent = `${newZero}/${createdDivs.length-3}`
